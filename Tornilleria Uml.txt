@@ -1,0 +1,54 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Users{
+- String id
+- String nombre
+- String password
++Users(String id,String nombre, String password)
+}
+
+class Admin{
++Admin(String id,String nombre, String password)
+}
+
+class Customer{
++Customer(String id,String nombre, String password)
+}
+
+class Vendedor{
++Vendedor(String id,String nombre, String password)
+}
+
+Users<|-- Admin
+Users<|-- Customer
+Users<|-- Vendedor
+
+class Product{
+-String id
+-String title
+-String description
+-int stock
+-double price
++Product()
+}
+
+class ShopingCart{
+-String productId
+-int amount
++ShopingCart()
+}
+
+class Controller{
++productAmount(String id): int
++setChopingCart(ArrayList<ShopingCart>shopingCart): void
++Arraylist<users>getUsers()
++Users userExist(String users, String pasw)
++ ArrayList<Product>getProduct()
++setProduct(): boolean
+}
+
+Product o-- Controller
+ShopingCart o-- Controller
+
+@enduml
